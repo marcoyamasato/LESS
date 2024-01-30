@@ -1,0 +1,36 @@
+No terminal VS CODE (caso já tenha o node configurado):
+
+	-npm install -g less
+
+	Na pasta do projeto:
+
+	- npm init
+	- npm install --save-dev less
+
+
+	Após isso, já vamos ter o package.json
+
+	- Criar o .gitignore
+	- Adicionar o node_modules dentro dela
+
+	- Iniciar git (git init)
+
+	- Criar o arquivo main.less
+
+	- Criar o arquivo html com as config desejadas
+
+
+	No package.json:
+
+	- No scripts adicionar o "less":"lessc ./caminho_arquivo_less ./ caminho_arquivo_final"
+	- npm run less
+	- Já teremos o arquivo css
+
+
+
+	Para adicionar watch:
+
+	- npm i -g less-watch-compiler (instalando global)
+	- npm i --save-dev less-watch-compiler
+
+	- No package.json trocamos para "less":"less-watch-compiler ./caminho ./caminho main.less

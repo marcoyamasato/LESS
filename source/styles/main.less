@@ -1,0 +1,120 @@
+@import "variaveis.less";
+@import "mapas.less";
+
+@breakPointMobile: ~"(max-width: 767px)"; //Isso é um escape
+@breakPointTablet: ~"(min-width: 768px) and (max-width: 1023px)";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'sans-serif';
+}
+
+.margin-bottom{
+    margin-bottom: 8px;
+}
+
+li{
+    list-style: none;
+}
+
+body{
+    background-color: #colors[backGroundColor];
+    color: #colors[textColor];
+}
+
+.container{
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+header{
+    padding: 9px;
+
+    .profile-avatar{
+        display: block;
+        margin: 0 auto 24px;
+        border-radius: 100px;
+    }
+}
+
+.profile-bio{
+
+    text-align: center;
+    &-name{//O "&" faz com que ele reconheça que é o profile-bio
+        font-size: 16px;
+        .margin-bottom();
+    };
+
+    &-subtitle{
+        font-size: 14px;
+        .margin-bottom();
+    };
+
+    &-description{
+        font-size: 14px;
+        opacity: 0.70;
+        .margin-bottom();
+    }
+}
+
+.social-links{
+    display: flex;
+    justify-content: space-between;
+    max-width: 240px;
+    width: 100%;
+    margin: 0 auto;
+    li{
+        img{
+            transition: all ease .1s;
+            &:hover{
+                transform: skew(15deg, 15deg);//Estamos aumentando em 10% a escala quando passamos o mouse
+            }
+        }
+    }
+}
+
+.profile-list{
+    .profile-item{
+        a{
+            text-decoration: none;
+            background-color: #colors[button-Color];
+            display: block;
+            padding: 16px 22px;
+            margin-bottom: 16px;
+            text-align: center;
+            color: #colors[textColor];
+            font-weight: bold;
+            border-radius: 30px;
+            border: 2px solid #colors[button-Color];
+
+            &:hover{
+                transition: all ease 0.4s;
+                color: #colors[button-Color];
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+    //Temos que tomar cuidado com a ordem que colocamos os breakpoints.
+    //Se colocarmos o tablet em segundo, uma tela do tamanho do celular ainda encaixaria na regra do tablet
+    //Isso porque estamos setando apenas o máximo, sem mínimo.
+    // Colocando o Mobile em último, não temos esse problema. Afinal para ele atender a regra mobile, tem que ser inferior ou igual ao 
+    // tamanho configurado. Se atender, realmente é mobile.
+
+    @media @breakPointTablet{
+        max-width: 80%;
+        background-color: red;
+    };
+
+    @media @breakPointMobile{
+        max-width: 70%;
+        background-color: blue;
+    };
+}
